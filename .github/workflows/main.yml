@@ -82,11 +82,11 @@ jobs:
       - name: Get image from packages, tag and push to Heroku
         run: |
           docker pull ghcr.io/lamfalusy/epam-nye-progkor-roleplay:${{ env.ARTIFACT_VERSION }}
-          docker tag ghcr.io/lamfalusy/epam-nye-progkor-roleplay:${{ env.ARTIFACT_VERSION }} registry.heroku.com/${{ env.HEROKU_APP_NAME }}/roleplay
-          docker push registry.heroku.com/${{ env.HEROKU_APP_NAME }}/roleplay
+          docker tag ghcr.io/lamfalusy/epam-nye-progkor-roleplay:${{ env.ARTIFACT_VERSION }} registry.heroku.com/${{ env.HEROKU_APP_NAME }}
+          docker push registry.heroku.com/${{ env.HEROKU_APP_NAME }}
         env:
           ARTIFACT_VERSION: ${{ needs.build.outputs.artifactVersion }}
       - name: Release app on Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release -a ${{ env.HEROKU_APP_NAME }} roleplay
+        run: heroku container:release -a ${{ env.HEROKU_APP_NAME }}
