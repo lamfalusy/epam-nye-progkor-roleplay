@@ -153,4 +153,12 @@
 		</plugins>
 	</build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/lamfalusy/epam-nye-progkor-roleplay</url>
+        </repository>
+    </distributionManagement>
+
 </project>
